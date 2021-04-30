@@ -50,13 +50,13 @@
       
       if (media <= 3) {
         document.getElementById("demo").innerHTML = nome.toUpperCase() + ", você foi REPROVADO na disciplina " +
-          disciplina.toUpperCase() + " com Média " + m;
+          disciplina.toUpperCase() + " com Média " + media;
       } else if ((media > 3) && (media < 7)) {
         document.getElementById("demo").innerHTML = nome.toUpperCase() + ", você está de RECUPERAÇÃO na disciplina " +
-          disciplina.toUpperCase() + " com Média " + m;
+          disciplina.toUpperCase() + " com Média " + media;
       } else if ((media >= 7) && (media <= 10)) {
         document.getElementById("demo").innerHTML = nome.toUpperCase() + ", você foi APROVADO na disciplina " +
-          disciplina.toUpperCase() + " com Média " + m;
+          disciplina.toUpperCase() + " com Média " + media;
       } else {
         document.getElementById("demo").innerHTML = "Algo está errado, corrija e tente novamente!!!";
       }

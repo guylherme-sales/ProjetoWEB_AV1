@@ -40,21 +40,24 @@
   </style>
 
   <script type="text/javascript">
-    function media() {
+    function mediacalculada() {
       var nome = form_calcularmedia.nome.value;
       var disciplina = form_calcularmedia.disciplina.value;
-      var n1 = form_calcularmedia.nota1.value;
-      var n2 = form_calcularmedia.nota2.value;
-      var m = (n1+n2)/2;
+      var n1 = form_calcularmedia.n1.value;
+      var n2 = form_calcularmedia.n2.value;
+      var m = (n1 + n2) / 2
 
       if (m <= 3) {
-        document.getElementById("demo").innerHTML = nome.toUpperCase() + ", você foi REPROVADO na disciplina " + disciplina.toUpperCase() + " com Média " + m + "."
-      } 
-      else if ((m > 3) & (m < 7)) {
-        document.getElementById("demo").innerHTML = nome.toUpperCase() + ", você está de RECUPERAÇÃO na disciplina " + disciplina.toUpperCase() + " com Média " + m + "."
-      }
-      else {
-        document.getElementById("demo").innerHTML = nome.toUpperCase() + ", você foi APROVADO na disciplina " + disciplina.toUpperCase() + " com Média " + m + "."
+        document.getElementById("demo").innerHTML = nome.toUpperCase() + ", você foi REPROVADO na disciplina " +
+          disciplina.toUpperCase() + " com Média " + m
+      } else if ((m > 3) && (m < 7)) {
+        document.getElementById("demo").innerHTML = nome.toUpperCase() + ", você está de RECUPERAÇÃO na disciplina " +
+          disciplina.toUpperCase() + " com Média " + m
+      } else if ((m >= 7) && (m <= 10)) {
+        document.getElementById("demo").innerHTML = nome.toUpperCase() + ", você foi APROVADO na disciplina " +
+          disciplina.toUpperCase() + " com Média " + m
+      } else {
+        document.getElementById("demo").innerHTML = "Algo está errado, corrija e tente novamente!!!"
       }
     }
   </script>
@@ -95,38 +98,41 @@
 
   <div class="row">
     <form name="form_calcularmedia" id="form_calcularmedia">
-    <div class="row">
-      <div class="input-field col s4">
-        <input placeholder="Insira o nome" id="nome" name="nome" type="text" class="validate" required>
-        <label>Nome do Aluno:</label>
+      <div class="row">
+        <div class="input-field col s4">
+          <input placeholder="Insira o nome" id="nome" name="nome" type="text" class="validate" required>
+          <label>Nome do Aluno:</label>
+        </div>
+        <div class="input-field col s6">
+          <label>Disciplina:</label>
+          <select class="custom-select" id="disciplina" name="disciplina" required>
+            <option selected disabled value="">Escolha uma Disciplina</option>
+            <option value="1">Linguagem de Programação WEB</option>
+            <option value="2">Banco de Dados II</option>
+            <option value="3">Interação Humano-Computador</option>
+            <option value="4">Análise e Desenvolvimento de Software</option>
+            <option value="5">Sistemas de Informações Gerenciais e Processos de Negócio</option>
+          </select>
+        </div>
       </div>
-      <div class="input-field col s6">
-        <label>Disciplina:</label>
-        <select class="custom-select" id="disciplina" name="disciplina" required>
-          <option selected disabled value="">Escolha uma Disciplina</option>
-          <option value="1">Linguagem de Programação WEB</option>
-          <option value="2">Banco de Dados II</option>
-          <option value="3">Interação Humano-Computador</option>
-          <option value="4">Análise e Desenvolvimento de Software</option>
-          <option value="5">Sistemas de Informações Gerenciais e Processos de Negócio</option>
-        </select>
+      <div class="row">
+        <div class="input-field col s4">
+          <input placeholder="Insira Nota da AV1" id="n1" name="n1" type="number" max="10" min="0" required>
+          <label>Nota AV1:</label>
+        </div>
+        <div class="input-field col s4">
+          <input placeholder="Insira Nota da AV2" id="n2" name="n2" type="number" max="10" min="0" required>
+          <label>Nota AV2:</label>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s4">
-        <input placeholder="Insira Nota da AV1" id="nota1" name="nota1" type="number" min="0" max="10" class="nota" required>
-        <label>Nota AV1:</label>
-      </div>
-      <div class="input-field col s4">
-        <input placeholder="Insira Nota da AV2" id="nota2" name="nota2" type="number" min="0" max="10" class="nota" required>
-        <label>Nota AV2:</label>
-      </div>
-    </div>
-    <button style="vertical-align:middle;margin:0px 10px" onclick="media()" class="btn btn-outline-primary float-right" type="button">Calcular Média</button>
+      <button style="vertical-align:middle;margin:0px 10px" onclick="mediacalculada()"
+        class="btn btn-outline-primary float-right" type="button">Calcular Média</button>
     </form>
   </div>
 
-  <br><br>
+  <br>
+
+  <p id="demo"></p>
 
   <footer class="page-footer">
     <div class="container">

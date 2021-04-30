@@ -45,19 +45,20 @@
       var disciplina = form_calcularmedia.disciplina.value;
       var n1 = form_calcularmedia.n1.value;
       var n2 = form_calcularmedia.n2.value;
-      var m = (n1 + n2) / 2
-
-      if (m <= 3) {
+      var media = (parseFloat(n1) + parseFloat(n2))/2;
+      alert(media);
+      
+      if (media <= 3) {
         document.getElementById("demo").innerHTML = nome.toUpperCase() + ", você foi REPROVADO na disciplina " +
-          disciplina.toUpperCase() + " com Média " + m
-      } else if ((m > 3) && (m < 7)) {
+          disciplina.toUpperCase() + " com Média " + m;
+      } else if ((media > 3) && (media < 7)) {
         document.getElementById("demo").innerHTML = nome.toUpperCase() + ", você está de RECUPERAÇÃO na disciplina " +
-          disciplina.toUpperCase() + " com Média " + m
-      } else if ((m >= 7) && (m <= 10)) {
+          disciplina.toUpperCase() + " com Média " + m;
+      } else if ((media >= 7) && (media <= 10)) {
         document.getElementById("demo").innerHTML = nome.toUpperCase() + ", você foi APROVADO na disciplina " +
-          disciplina.toUpperCase() + " com Média " + m
+          disciplina.toUpperCase() + " com Média " + m;
       } else {
-        document.getElementById("demo").innerHTML = "Algo está errado, corrija e tente novamente!!!"
+        document.getElementById("demo").innerHTML = "Algo está errado, corrija e tente novamente!!!";
       }
     }
   </script>
@@ -105,7 +106,7 @@
         </div>
         <div class="input-field col s6">
           <label>Disciplina:</label>
-          <select class="custom-select" id="disciplina" name="disciplina" required>
+          <select class="custom-select" id="disciplina" name="disciplina" >
             <option selected disabled value="">Escolha uma Disciplina</option>
             <option value="1">Linguagem de Programação WEB</option>
             <option value="2">Banco de Dados II</option>

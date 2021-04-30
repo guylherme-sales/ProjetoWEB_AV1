@@ -45,8 +45,8 @@
       var disciplina = form_calcularmedia.disciplina.value;
       var n1 = form_calcularmedia.n1.value;
       var n2 = form_calcularmedia.n2.value;
-      var media = (parseFloat(n1) + parseFloat(n2))/2;
-      
+      var media = (parseFloat(n1) + parseFloat(n2)) / 2;
+
       if (media <= 3) {
         document.getElementById("demo").innerHTML = nome.toUpperCase() + ", você foi REPROVADO na disciplina " +
           disciplina.toUpperCase() + " com Média " + media;
@@ -104,14 +104,14 @@
           <label>Nome do Aluno:</label>
         </div>
         <div class="input-field col s6">
-          <label>Disciplina:</label>
-          <select class="custom-select" id="disciplina" name="disciplina" required>
+          <select class="custom-select" id="disciplina" name="disciplina">
             <option selected disabled value="">Escolha uma Disciplina</option>
-            <option value="1">Linguagem de Programação WEB</option>
-            <option value="2">Banco de Dados II</option>
-            <option value="3">Interação Humano-Computador</option>
-            <option value="4">Análise e Desenvolvimento de Software</option>
-            <option value="5">Sistemas de Informações Gerenciais e Processos de Negócio</option>
+            <option value="Linguagem de Programação WEB">Linguagem de Programação WEB</option>
+            <option value="Banco de Dados II">Banco de Dados II</option>
+            <option value="Interação Humano-Computador">Interação Humano-Computador</option>
+            <option value="Análise e Desenvolvimento de Software">Análise e Desenvolvimento de Software</option>
+            <option value="Sistemas de Informações Gerenciais e Processos de Negócio">Sistemas de Informações Gerenciais
+              e Processos de Negócio</option>
           </select>
         </div>
       </div>
@@ -161,6 +161,18 @@
     </div>
   </footer>
 
+  <script type="text/javascript" src="//code.jquery.com/jquery-2.1.4.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js">
+  </script>
+  <style type="text/css"></style>
+  <script type="text/javascript">
+    //<![CDATA[
+    window.onload = function () {
+      $(document).ready(function () {
+        $('select').material_select();
+      });
+    }
+  </script>
 </body>
 
 </html>

@@ -43,6 +43,62 @@
       font-weight: 900;
     }
   </style>
+
+  <script type="text/javascript">
+    function gerarcarne() {
+      var nome = form_carne.nome.value;
+      var codigo = form_carne.codigo.value;
+      var valor = form_carne.valor.value;
+      var qtd = form_carne.qtd.value;
+      var parcela = form_carne.parcela.value;
+      var total = (parseFloat(valor) * parseFloat(qtd))
+
+      if (parcela == 1) {
+        var totalx = parseFloat(total);
+      } else if (parcela == 2) {
+        var totalx = parseFloat(total) + (parseFloat(total) * 0.03);
+      } else if (parcela == 3) {
+        var totalx = parseFloat(total) + (parseFloat(total) * 0.05);
+      } else if (parcela == 4) {
+        var totalx = parseFloat(total) + (parseFloat(total) * 0.07);
+      } else if (parcela == 5) {
+        var totalx = parseFloat(total) + (parseFloat(total) * 0.09);
+      } else if (parcela == 6) {
+        var totalx = parseFloat(total) + (parseFloat(total) * 0.12);
+      } else {
+        alert("O parcelamento está errado, corrija e tente novamente!!!");
+      }
+
+      if (codigo == 1235) {
+        var produto = "TV Samsung 40' Smart"
+      } else if (codigo == 2610) {
+        var produto = "Liquidificador"
+      } else if (codigo == 6590) {
+        var produto = "Geladeira Brastemp"
+      } else if (codigo == 1586) {
+        var produto = "Impressora EPSON"
+      } else {
+        alert("O Produto está errado, corrijá o código do produto e tente novamente!!!");
+      }
+    
+      for (i = 1; i <= parcela; i++) {
+        document.getElementById(gerar).innerHTML =
+          "-----------------------------------<b>LOJA DE ELETRODOMÉSTICOS</b>-----------------------------------" +
+          "<br><b>CLIENTE:</b>" + nome.toUpperCase() +
+          "<br><b>PRODUTO:</b>" + produto +
+          "<br><b>VALOR TOTAL:</b>" + total.toLocaleString('pt-BR', {
+            style: 'currency',
+            currency: 'BRL'
+          }) +
+          "<br><b>VALOR TOTAL COM AUMENTO:</b>" + totalx.toLocaleString('pt-BR', {
+            style: 'currency',
+            currency: 'BRL'
+          }) +
+          "<br><b>PARCELA:</b>" + i + "/" + parseFloat(parcela) +
+          "<br>----------------------------------------------------------------------------------------------------"
+      }
+    }
+  </script>
 </head>
 
 <body>
@@ -71,10 +127,122 @@
 
   <h5><img src="imagens/02.png" alt="Q02." width="50" height="30" style="vertical-align:middle;margin:0px 10px">Questão:
   </h5>
+  <p>Software para Gerar Carnê de Pagamento para Cliente</p>
 
   <br>
 
   <h5 style="vertical-align:middle;margin:0px 20px">Resolução:</h5>
+
+  <h5 style="text-align: center;">LOJA DE ELETRODOMÉSTICOS</h5>
+
+  <div class="row">
+    <div class="input-field col s1"></div>
+    <div class="input-field col s4">
+      <h6 style="text-align: center;">TABELA DE PRODUTOS</h6>
+      <table class="table table-sm">
+        <thead>
+          <tr>
+            <th scope="col">Código</th>
+            <th scope="col">Produto</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1235</td>
+            <td>TV Samsung 40' Smart</td>
+          </tr>
+          <tr>
+            <td>2610</td>
+            <td>Liquidificador</td>
+          </tr>
+          <tr>
+            <td>6590</td>
+            <td>Geladeira Brastemp</td>
+          </tr>
+          <tr>
+            <td>1586</td>
+            <td>Impressora EPSON</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="input-field col s2"></div>
+    <div class="input-field col s4">
+      <h6 style="text-align: center;">TABELA DE PORCENTAGEM DE AUMENTO NO TOTAL A SER PAGO</h6>
+      <table class="table table-sm">
+        <thead>
+          <tr>
+            <th scope="col">Parcelamento</th>
+            <th scope="col">Aumento(%)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1x</td>
+            <td>Sem Aumento</td>
+          </tr>
+          <tr>
+            <td>2x</td>
+            <td>3</td>
+          </tr>
+          <tr>
+            <td>3x</td>
+            <td>5</td>
+          </tr>
+          <tr>
+            <td>4x</td>
+            <td>7</td>
+          <tr>
+            <td>5x</td>
+            <td>9</td>
+          </tr>
+          <tr>
+            <td>6x</td>
+            <td>12</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <br>
+
+  <h6 style="vertical-align:middle;margin:0px 30px">CARNÊ DE PAGAMENTO:</h6>
+
+  <br>
+
+  <div class="row">
+    <form name="form_carne" id="form_carne">
+      <div class="row">
+        <div class="input-field col s1"></div>
+        <div class="input-field col s6">
+          <input placeholder="Insira o nome" id="nome" name="nome" type="text" class="validate" required>
+          <label>Nome do Cliente:</label>
+        </div>
+        <div class="input-field col s3">
+          <input placeholder="Insira o código" id="codigo" name="codigo" type="text" class="validate" required>
+          <label>Código do Produto:</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s1"></div>
+        <div class="input-field col s3">
+          <input placeholder="Insira o valor" id="valor" name="valor" type="number" min="0" required>
+          <label>Valor do Produto(R$):</label>
+        </div>
+        <div class="input-field col s3">
+          <input placeholder="2" id="qtd" name="qtd" type="number" min="1" required>
+          <label>Quantidade:</label>
+        </div>
+        <div class="input-field col s3">
+          <input placeholder="." id="parcela" name="parcela" type="number" min="1" max="6" required>
+          <label>Parcelamento(Até 6x):</label>
+        </div>
+      </div>
+      <button style="vertical-align:middle;margin:0px 120px" onclick="gerarcarne()"
+        class="btn btn-outline-primary float-right" type="button">Gerar Carnê</button>
+    </form>
+  </div>
 
   <br><br>
 

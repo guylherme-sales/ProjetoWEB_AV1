@@ -49,13 +49,13 @@
 
       if (media <= 3) {
         document.getElementById("demo").innerHTML = nome.toUpperCase() + ", você foi REPROVADO na disciplina " +
-          disciplina.toUpperCase() + " com Média " + media;
+          disciplina.toUpperCase() + ", com Média " + media;
       } else if ((media > 3) && (media < 7)) {
         document.getElementById("demo").innerHTML = nome.toUpperCase() + ", você está de RECUPERAÇÃO na disciplina " +
-          disciplina.toUpperCase() + " com Média " + media;
+          disciplina.toUpperCase() + ", com Média " + media;
       } else if ((media >= 7) && (media <= 10)) {
         document.getElementById("demo").innerHTML = nome.toUpperCase() + ", você foi APROVADO na disciplina " +
-          disciplina.toUpperCase() + " com Média " + media;
+          disciplina.toUpperCase() + ", com Média " + media;
       } else {
         document.getElementById("demo").innerHTML = "Algo está errado, corrija e tente novamente!!!";
       }
@@ -104,23 +104,16 @@
           <label>Nome do Aluno:</label>
         </div>
         <div class="input-field col s6">
-          <select class="custom-select" id="disciplina" name="disciplina">
-            <option selected disabled value="">Escolha uma Disciplina</option>
-            <option value="Linguagem de Programação WEB">Linguagem de Programação WEB</option>
-            <option value="Banco de Dados II">Banco de Dados II</option>
-            <option value="Interação Humano-Computador">Interação Humano-Computador</option>
-            <option value="Análise e Desenvolvimento de Software">Análise e Desenvolvimento de Software</option>
-            <option value="Sistemas de Informações Gerenciais e Processos de Negócio">Sistemas de Informações Gerenciais
-              e Processos de Negócio</option>
-          </select>
+          <input placeholder="Insira a Disciplina" id="disciplina" name="disciplina" type="text" class="validate" required>
+          <label>Disciplina:</label>
         </div>
       </div>
       <div class="row">
-        <div class="input-field col s4">
+        <div class="input-field col s5">
           <input placeholder="Insira Nota da AV1" id="n1" name="n1" type="number" max="10" min="0" required>
           <label>Nota AV1:</label>
         </div>
-        <div class="input-field col s4">
+        <div class="input-field col s5">
           <input placeholder="Insira Nota da AV2" id="n2" name="n2" type="number" max="10" min="0" required>
           <label>Nota AV2:</label>
         </div>
@@ -163,18 +156,6 @@
     </div>
   </footer>
 
-  <script type="text/javascript" src="//code.jquery.com/jquery-2.1.4.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js">
-  </script>
-  <style type="text/css"></style>
-  <script type="text/javascript">
-    //<![CDATA[
-    window.onload = function () {
-      $(document).ready(function () {
-        $('select').material_select();
-      });
-    }
-  </script>
 </body>
 
 </html>

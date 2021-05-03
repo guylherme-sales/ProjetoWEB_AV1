@@ -42,6 +42,7 @@
       font-size: 20px;
       font-weight: 900;
     }
+    
   </style>
 
   <script type="text/javascript">
@@ -82,21 +83,13 @@
       }
     
       for (i = 1; i <= parcela; i++) {
-        document.getElementById(gerar).innerHTML =
-          "-----------------------------------<b>LOJA DE ELETRODOMÉSTICOS</b>-----------------------------------" +
-          "<br><b>CLIENTE:</b>" + nome.toUpperCase() +
-          "<br><b>PRODUTO:</b>" + produto +
-          "<br><b>VALOR TOTAL:</b>" + total.toLocaleString('pt-BR', {
-            style: 'currency',
-            currency: 'BRL'
-          }) +
-          "<br><b>VALOR TOTAL COM AUMENTO:</b>" + totalx.toLocaleString('pt-BR', {
-            style: 'currency',
-            currency: 'BRL'
-          }) +
-          "<br><b>PARCELA:</b>" + i + "/" + parseFloat(parcela) +
-          "<br>----------------------------------------------------------------------------------------------------"
-      }
+        document.getElementById("gerar").innerHTML = document.getElementById("gerar").innerHTML
+        + "<br>-----------------------------------<b>LOJA DE ELETRODOMÉSTICOS</b>-----------------------------------"
+        + "<br><b>CLIENTE: </b>" + nome.toUpperCase() + "<br><b>PRODUTO: </b>" + produto + "<br><b>VALOR TOTAL: </b>" +
+        total.toLocaleString('pt-BR', { style: 'currency' , currency: 'BRL' }) + "<br><b>VALOR TOTAL COM AUMENTO: </b>"
+        + totalx.toLocaleString('pt-BR', { style: 'currency' , currency: 'BRL' }) + "<br><b>PARCELA: </b>" + i + "/" +
+        parseFloat(parcela)
+        + "<br>---------------------------------------------------------------------------------------------------------<br>" }
     }
   </script>
 </head>
@@ -243,6 +236,8 @@
         class="btn btn-outline-primary float-right" type="button">Gerar Carnê</button>
     </form>
   </div>
+
+  <p id="gerar" style="vertical-align:middle;margin:0px 120px"></p>
 
   <br><br>
 

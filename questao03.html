@@ -47,22 +47,21 @@
 
       var novo_sal = "CARGO NÃO POSSUI REAJUSTE DE SALÁRIO";
 
-      if (cargo == "Atendente" || cargo == "atendente" || cargo == "ATENDENTE") {
+      if ((cargo == "Atendente") || (cargo == "atendente") || (cargo == "ATENDENTE")) {
         var aumento = (parseFloat(salario) * 0.08);
         var novo_sal = (parseFloat(salario) + parseFloat(aumento));
         var perc_aum = " (+ 8%)";
-      } else if (cargo == "Estoquista" || cargo == "estoquista" || cargo == "ESTOQUISTA") {
+      } else if ((cargo == "Estoquista") || (cargo == "estoquista") || (cargo == "ESTOQUISTA")) {
         var aumento = (parseFloat(salario) * 0.06);
         var novo_sal = (parseFloat(salario) + parseFloat(aumento));
         var perc_aum = " (+ 6%)";
-      } else if (cargo == "Gerente" || cargo == "gerente" || cargo == "GERENTE") {
+      } else if ((cargo == "Gerente") || (cargo == "gerente") || (cargo == "GERENTE")) {
         var aumento = (parseFloat(salario) * 0.03);
         var novo_sal = (parseFloat(salario) + parseFloat(aumento));
         var perc_aum = " (+ 3%)";
       } else {
         var aumento = "CARGO SEM AUMENTO NO MOMENTO.";
       }
-
 
       if (novo_sal <= 1045) {
         var inss = (parseFloat(novo_sal) * 0.075);
@@ -104,7 +103,7 @@
           style: 'currency',
           currency: 'BRL'
         }) +
-        "<br>------------------------------------------------------------------------------------------------------------------"
+        "<br>------------------------------------------------------------------------------------------------------------------";
 
     }
   </script>

@@ -38,6 +38,47 @@
       font-weight: 500;
     }
   </style>
+
+  <script type="text/javascript">
+    function calcularimc() {
+      var nome = form_imc.nome.value;
+      var peso = form_imc.peso.value;
+      var altura = form_imc.altura.value;
+      var imc = (parseFloat(peso) / (parseFloat(altura) * parseFloat(altura)));
+      
+      if (imc < 18.5) {
+        var obesidade = "Baixo Peso.";
+        var proplema = "Peso baixo para a altura. Maior probabilidade de anorexia.";
+      } else if ((imc >= 18.5) && (imc < 25)) {
+        var obesidade = "Peso Normal.";
+        var problema = "Maior probabilidade de ser um indivíduo saudável.";
+      } else if ((imc >= 25) && (imc < 30)) {
+        var obesidade = "Pré-obesidade.";
+        var problema = "Alguma probabilidade de problemas de saúde. Pré-disposição a torna-se obeso.";
+      } else if ((imc >= 30) && (imc < 35)) {
+        var obesidade = "Obesidade Grau I.";
+        var problema = "Risco moderado de disbetes tipo II, hipertensão, colesterol e cardiopatia.";
+      } else if ((imc >= 35) && (imc < 40)) {
+        var obesidade = "Obesidade Grau II.";
+        var problema = "Risco grave. Aumenta o risco de doenças associadas. O risco de mortalidade aumenta 50%.";
+      } else {
+        var obesidade = "Obesidade Grau III ou obesidade mórbida.";
+        var problema = "Risco Muito Grave. O risco de doenças associadas assim como a mortalidade aumenta 90%";
+      }
+
+      document.getElementById("mostrar").innerHTML = 
+      "<br>------------------------------------------------------------------------------------------------" + 
+      "<br>                                  <b>RESULTADO - IMC</b>" + 
+      "<br><br><b>PACIENTE:     </b>" + nome.toUpperCase() + 
+      "<br><b>PESO:         </b>" + peso + " Kg" + 
+      "<br><b>ALTURA:       </b>" + altura + " Metros" + 
+      "<br><b>IMC:          </b>" + imc + 
+      "<br><br>Olá " + nome.toUpperCase() + ", você está no nível de obesidade: " + <b>obesidade</b> + 
+      " Com este nível de IMC você está propenso a apresentar os seguintes problemas de saúde: " + <b>problema</b> + 
+      "<br>------------------------------------------------------------------------------------------------";
+
+    }
+  </script>
 </head>
 
 <body>
@@ -62,14 +103,51 @@
   <h6><a href="questoes.html"><i class="small material-icons">arrow_back</i></a>Voltar para as Questões</h6>
 
   <br>
+
   <hr>
 
   <h5><img src="imagens/04.png" alt="Q04." width="50" height="30" style="vertical-align:middle;margin:0px 10px">Questão:
   </h5>
+  <p>Software que calcula o IMC (Índice de Massa Corporal) de qualquer pessoa.</p>
+
+  <hr>
 
   <br>
 
   <h5 style="vertical-align:middle;margin:0px 20px">Resolução:</h5>
+
+  <br>
+
+  <p>Insira as Informações para calcular o seu IMC:</p>
+
+  <br>
+
+  <div class="row">
+    <form name="form_imc" id="form_imc">
+      <div class="row">
+        <div class="input-field col s1"></div>
+        <div class="input-field col s10">
+          <input placeholder="Nome" id="nome" name="nome" type="text" class="validate" required>
+          <label>Paciente:</label>
+        </div>
+        <div class="row">
+          <div class="input-field col s2"></div>
+          <div class="input-field col s3">
+            <input placeholder="86" id="peso" name="peso" type="number" min="0" required>
+            <label>Peso(Kg):</label>
+          </div>
+          <div class="input-field col s1"></div>
+          <div class="input-field col s4">
+            <input placeholder="1,62" id="altura" name="altura" type="number" min="0" required>
+            <label>Altura(m):</label>
+          </div>
+        </div>
+        <button style="vertical-align:middle;margin:0px 120px" onclick="calcularimc()"
+          class="btn btn-outline-primary float-right" type="button">Calcular</button>
+    </form>
+  </div>
+
+  <p id="mostrar" style="vertical-align:middle;margin:0px 120px"></p>
 
   <br><br>
 

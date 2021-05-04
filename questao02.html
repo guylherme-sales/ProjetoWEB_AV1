@@ -70,6 +70,8 @@
         alert("O parcelamento está errado, corrija e tente novamente!!!");
       }
 
+      var parcelapg = (totalx / parcela)
+
       if (codigo == 1235) {
         var produto = "TV Samsung 40' Smart"
       } else if (codigo == 2610) {
@@ -87,7 +89,8 @@
         + "<br>-----------------------------------<b>LOJA DE ELETRODOMÉSTICOS</b>-----------------------------------"
         + "<br><b>CLIENTE: </b>" + nome.toUpperCase() + "<br><b>PRODUTO: </b>" + produto + "<br><b>VALOR TOTAL: </b>" +
         total.toLocaleString('pt-BR', { style: 'currency' , currency: 'BRL' }) + "<br><b>VALOR TOTAL COM AUMENTO: </b>"
-        + totalx.toLocaleString('pt-BR', { style: 'currency' , currency: 'BRL' }) + "<br><b>PARCELA: </b>" + i + "/" +
+        + totalx.toLocaleString('pt-BR', { style: 'currency' , currency: 'BRL' }) + "<br><b>VALOR DA PARCELA: </b>"
+        + parcelapg.toLocaleString('pt-BR', { style: 'currency' , currency: 'BRL' }) + "<br><b>PARCELA: </b>" + i + "/" +
         parseFloat(parcela)
         + "<br>---------------------------------------------------------------------------------------------------------<br>"; }
     }

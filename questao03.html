@@ -38,6 +38,76 @@
       font-weight: 500;
     }
   </style>
+
+  <script type="text/javascript">
+    function contracheque() {
+      var nome = form_gerarcontracheque.nome.value;
+      var cargo = form_gerarcontracheque.cargo.value;
+      var salario = form_gerarcontracheque.salario.value;
+
+      var novo_sal = "CARGO NÃO POSSUI REAJUSTE DE SALÁRIO";
+
+      if (cargo == "Atendente" || cargo == "atendente" || cargo == "ATENDENTE") {
+        var aumento = (parseFloat(salario) * 0.08);
+        var novo_sal = (parseFloat(salario) + parseFloat(aumento));
+        var perc_aum = " (+ 8%)";
+      } else if (cargo == "Estoquista" || cargo == "estoquista" || cargo == "ESTOQUISTA") {
+        var aumento = (parseFloat(salario) * 0.06);
+        var novo_sal = (parseFloat(salario) + parseFloat(aumento));
+        var perc_aum = " (+ 6%)";
+      } else if (cargo == "Gerente" || cargo == "gerente" || cargo == "GERENTE") {
+        var aumento = (parseFloat(salario) * 0.03);
+        var novo_sal = (parseFloat(salario) + parseFloat(aumento));
+        var perc_aum = " (+ 3%)";
+      } else {
+        var aumento = "CARGO SEM AUMENTO NO MOMENTO.";
+      }
+
+
+      if (novo_sal <= 1045) {
+        var inss = (parseFloat(novo_sal) * 0.075);
+        var sal_liq = parseFloat(novo_sal) - parseFloat(inss);
+        var perc_inss = " (- 7,5%)";
+      } else if ((novo_sal > 1045) && (novo_sal <= 2089.6)) {
+        var inss = (parseFloat(novo_sal) * 0.09);
+        var sal_liq = parseFloat(novo_sal) - parseFloat(inss);
+        var perc_inss = " (- 9%)";
+      } else if ((novo_sal > 2089.6) && (novo_sal <= 3134.4)) {
+        var inss = (parseFloat(novo_sal) * 0.12);
+        var sal_liq = parseFloat(novo_sal) - parseFloat(inss);
+        var perc_inss = " (- 12%)";
+      } else {
+        alert("Salário base acima do permitido ou Cargo inexistente, corrija e tente novamente!!!")
+      }
+
+      document.getElementById("demo").innerHTML =
+        "<br>---------------------------------------------- <b>CONTRA CHEQUE</b> ----------------------------------------------" +
+        "<br><b>FUNCIONÁRIO:</b> " + nome.toUpperCase() +
+        "<br><b>CARGO:</b> " + cargo.toUpperCase() +
+        "<br><br><b>SALÁRIO ATUAL:</b> " + parseFloat(salario).toLocaleString('pt-BR', {
+          style: 'currency',
+          currency: 'BRL'
+        }) +
+        "<br><b>AUMENTO SALARIAL:</b> " + aumento.toLocaleString('pt-BR', {
+          style: 'currency',
+          currency: 'BRL'
+        }) + perc_aum +
+        "<br><b>NOVO SALÁRIO:</b> " + novo_sal.toLocaleString('pt-BR', {
+          style: 'currency',
+          currency: 'BRL'
+        }) +
+        "<br><b>DESCONTO INSS:</b> " + inss.toLocaleString('pt-BR', {
+          style: 'currency',
+          currency: 'BRL'
+        }) + perc_inss +
+        "<br><br><b>SALÁRIO LÍQUIDO:</b> " + sal_liq.toLocaleString('pt-BR', {
+          style: 'currency',
+          currency: 'BRL'
+        }) +
+        "<br>------------------------------------------------------------------------------------------------------------------"
+
+    }
+  </script>
 </head>
 
 <body>
@@ -57,47 +127,147 @@
 
   <h3 class="center-align">Questão da Atividade</h3>
 
-<hr>
+  <hr>
 
-<h6><a href="questoes.html"><i class="small material-icons">arrow_back</i></a>Voltar para as Questões</h6>
+  <h6><a href="questoes.html"><i class="small material-icons">arrow_back</i></a>Voltar para as Questões</h6>
 
-<br>
-<hr>
+  <br>
+  <hr>
 
-<h5><img src="imagens/03.png" alt="Q03." width="50" height="30" style="vertical-align:middle;margin:0px 10px">Questão:</h5>
+  <h5><img src="imagens/03.png" alt="Q03." width="50" height="30" style="vertical-align:middle;margin:0px 10px">Questão:
+  </h5>
+  <p>Software para emissão de Contra Cheque de Funcionário.</p>
 
-<br>
+  <h5 style="text-align: center;">EMISSÃO DE CONTRA CHEQUE</h5>
 
-<h5 style="vertical-align:middle;margin:0px 20px">Resolução:</h5>
+  <div class="row">
+    <div class="input-field col s1"></div>
+    <div class="input-field col s4">
+      <h6 style="text-align: center;">TABELA PLANO DE CARGOS E CARREIRA</h6>
+      <table class="table table-sm">
+        <thead>
+          <tr>
+            <th scope="col">CARGO</th>
+            <th scope="col">AUMENTO (%)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>ATENDENTE</td>
+            <td>8</td>
+          </tr>
+          <tr>
+            <td>ESTOQUISTA</td>
+            <td>6</td>
+          </tr>
+          <tr>
+            <td>GERENTE</td>
+            <td>3</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
-<br><br>
-
-<footer class="page-footer">
-  <div class="container">
-    <div class="row">
-      <div class="col l6 s12">
-        <h5 class="white-text">Repositório Usado</h5>
-        <p1 class="grey-text text-lighten-4">Nesse WebSite, as linhas de códigos foram feitas no Visual Studio Code e
-          foi usado o Repositório GitHub.</p1>
-      </div>
-      <div class="col l4 offset-l2 s12">
-        <h5 class="white-text">Link do GITHUB</h5>
-        <ul>
-          <p1>https://github.com/guylherme-sales/ProjetoWEB_AV1.git<a
-              href="https://github.com/guylherme-sales/ProjetoWEB_AV1.git" target="_blank"> <img
-                src="imagens/GitHub-Logo.png" alt="GitHub" width="80px" height="40px"
-                style="vertical-align:middle;margin:0px 5px"></a></p1>
-        </ul>
-      </div>
+    <div class="input-field col s1"></div>
+    <div class="input-field col s4">
+      <h6 style="text-align: center;"> TABELA DE CONTRIUBUIÇÃO DO INSS EM 2020</h6>
+      <table class="table table-sm">
+        <thead>
+          <tr>
+            <th scope="col">SAlÁRIO BASE</th>
+            <th scope="col">ALIQUOTA INSS (%)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>até R$ 1.045,00</td>
+            <td>7,5</td>
+          </tr>
+          <tr>
+            <td>de R$ 1.045,01 até R$ 2.089,60</td>
+            <td>9</td>
+          </tr>
+          <tr>
+            <td>de R$ 2.089,61 até R$ 3.134,40</td>
+            <td>12</td>
+          </tr>
+          <tr>
+            <td>acima de R$ 3.134,40</td>
+            <td>14</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
-  <div class="footer-copyright">
+
+  <hr>
+
+  <br>
+
+  <h5 style="vertical-align:middle;margin:0px 20px">Resolução:</h5>
+
+  <br>
+
+  <h6 style="vertical-align:middle;margin:0px 30px">CONTRA CHEQUE:</h6>
+
+  <br>
+
+  <div class="row">
+    <form name="form_gerarcontracheque" id="form_gerarcontracheque">
+      <div class="row">
+        <div class="input-field col s1"></div>
+        <div class="input-field col s10">
+          <input placeholder="Nome do Funcionário" id="nome" name="nome" type="text" class="validate" required>
+          <label>Funcionário:</label>
+        </div>
+        <div class="row">
+          <div class="input-field col s2"></div>
+          <div class="input-field col s3">
+            <input placeholder="Insira o cargo do funcionário" id="cargo" name="cargo" type="text" required>
+            <label>Cargo:</label>
+          </div>
+          <div class="input-field col s1"></div>
+          <div class="input-field col s4">
+            <input placeholder="1.100,00" id="salario" name="salario" type="number" min="0" required>
+            <label>Salário(R$):</label>
+          </div>
+        </div>
+        <button style="vertical-align:middle;margin:0px 120px" onclick="contracheque()"
+          class="btn btn-outline-primary float-right" type="button">Gerar Contra Cheque</button>
+    </form>
+  </div>
+
+  <p id="demo" style="vertical-align:middle;margin:0px 120px"></p>
+
+  <br><br>
+
+  <footer class="page-footer">
     <div class="container">
-      <p1>ATIVIDADE - PROJETO WEB COM FRAMEWORKS CSS</p1>
-      <p1 class="grey-text text-lighten-4 right">Guylherme Sales</p1>
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Repositório Usado</h5>
+          <p1 class="grey-text text-lighten-4">Nesse WebSite, as linhas de códigos foram feitas no Visual Studio Code e
+            foi usado o Repositório GitHub.</p1>
+        </div>
+        <div class="col l4 offset-l2 s12">
+          <h5 class="white-text">Link do GITHUB</h5>
+          <ul>
+            <p1>https://github.com/guylherme-sales/ProjetoWEB_AV1.git<a
+                href="https://github.com/guylherme-sales/ProjetoWEB_AV1.git" target="_blank"> <img
+                  src="imagens/GitHub-Logo.png" alt="GitHub" width="80px" height="40px"
+                  style="vertical-align:middle;margin:0px 5px"></a></p1>
+          </ul>
+        </div>
+      </div>
     </div>
-  </div>
-</footer>
+    <div class="footer-copyright">
+      <div class="container">
+        <p1>ATIVIDADE - PROJETO WEB COM FRAMEWORKS CSS</p1>
+        <p1 class="grey-text text-lighten-4 right">Guylherme Sales</p1>
+      </div>
+    </div>
+  </footer>
 
 </body>
+
 </html>

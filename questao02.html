@@ -42,7 +42,6 @@
       font-size: 20px;
       font-weight: 900;
     }
-    
   </style>
 
   <script type="text/javascript">
@@ -83,16 +82,26 @@
       } else {
         alert("O Produto está errado, corrijá o código do produto e tente novamente!!!");
       }
-    
+
       for (i = 1; i <= parcela; i++) {
-        document.getElementById("gerar").innerHTML = document.getElementById("gerar").innerHTML
-        + "<br>-----------------------------------<b>LOJA DE ELETRODOMÉSTICOS</b>-----------------------------------"
-        + "<br><b>CLIENTE: </b>" + nome.toUpperCase() + "<br><b>PRODUTO: </b>" + produto + "<br><b>VALOR TOTAL: </b>" +
-        total.toLocaleString('pt-BR', { style: 'currency' , currency: 'BRL' }) + "<br><b>VALOR TOTAL COM AUMENTO: </b>"
-        + totalx.toLocaleString('pt-BR', { style: 'currency' , currency: 'BRL' }) + "<br><b>VALOR DA PARCELA: </b>"
-        + parcelapg.toLocaleString('pt-BR', { style: 'currency' , currency: 'BRL' }) + "<br><b>PARCELA: </b>" + i + "/" +
-        parseFloat(parcela)
-        + "<br>---------------------------------------------------------------------------------------------------------<br>"; }
+        document.getElementById("gerar").innerHTML = document.getElementById("gerar").innerHTML +
+          "<br>-----------------------------------<b>LOJA DE ELETRODOMÉSTICOS</b>-----------------------------------" +
+          "<br><b>CLIENTE: </b>" + nome.toUpperCase() + "<br><b>PRODUTO: </b>" + produto + "<br><b>VALOR TOTAL: </b>" +
+          total.toLocaleString('pt-BR', {
+            style: 'currency',
+            currency: 'BRL'
+          }) + "<br><b>VALOR TOTAL COM AUMENTO: </b>" +
+          totalx.toLocaleString('pt-BR', {
+            style: 'currency',
+            currency: 'BRL'
+          }) + "<br><b>VALOR DA PARCELA: </b>" +
+          parcelapg.toLocaleString('pt-BR', {
+            style: 'currency',
+            currency: 'BRL'
+          }) + "<br><b>PARCELA: </b>" + i + "/" +
+          parseFloat(parcela) +
+          "<br>---------------------------------------------------------------------------------------------------------<br>";
+      }
     }
   </script>
 </head>
@@ -125,7 +134,7 @@
   </h5>
   <p>Software para Gerar Carnê de Pagamento para Cliente.</p>
 
-<h5 style="text-align: center;">LOJA DE ELETRODOMÉSTICOS</h5>
+  <h5 style="text-align: center;">LOJA DE ELETRODOMÉSTICOS</h5>
 
   <div class="row">
     <div class="input-field col s1"></div>

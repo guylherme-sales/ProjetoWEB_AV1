@@ -45,37 +45,37 @@
       var peso = form_imc.peso.value;
       var altura = form_imc.altura.value;
       var imc = (parseFloat(peso) / (parseFloat(altura) * parseFloat(altura)));
-      
+
       if (imc < 18.5) {
-        var obesidade = "Baixo Peso.";
-        var proplema = "Peso baixo para a altura. Maior probabilidade de anorexia.";
+        var obesidade = "<b>Baixo Peso.</b>";
+        var proplema = "<b>Peso baixo para a altura. Maior probabilidade de anorexia.</b>";
       } else if ((imc >= 18.5) && (imc < 25)) {
-        var obesidade = "Peso Normal.";
-        var problema = "Maior probabilidade de ser um indivíduo saudável.";
+        var obesidade = "<b>Peso Normal.</b>";
+        var problema = "<b>Maior probabilidade de ser um indivíduo saudável.</b>";
       } else if ((imc >= 25) && (imc < 30)) {
-        var obesidade = "Pré-obesidade.";
-        var problema = "Alguma probabilidade de problemas de saúde. Pré-disposição a torna-se obeso.";
+        var obesidade = "<b>Pré-obesidade.</b>";
+        var problema = "<b>Alguma probabilidade de problemas de saúde. Pré-disposição a torna-se obeso.</b>";
       } else if ((imc >= 30) && (imc < 35)) {
-        var obesidade = "Obesidade Grau I.";
-        var problema = "Risco moderado de disbetes tipo II, hipertensão, colesterol e cardiopatia.";
+        var obesidade = "<b>Obesidade Grau I.</b>";
+        var problema = "<b>Risco moderado de disbetes tipo II, hipertensão, colesterol e cardiopatia.</b>";
       } else if ((imc >= 35) && (imc < 40)) {
-        var obesidade = "Obesidade Grau II.";
-        var problema = "Risco grave. Aumenta o risco de doenças associadas. O risco de mortalidade aumenta 50%.";
+        var obesidade = "<b>Obesidade Grau II.</b>";
+        var problema = "<b>Risco grave. Aumenta o risco de doenças associadas. O risco de mortalidade aumenta 50%.</b>";
       } else {
-        var obesidade = "Obesidade Grau III ou obesidade mórbida.";
-        var problema = "Risco Muito Grave. O risco de doenças associadas assim como a mortalidade aumenta 90%";
+        var obesidade = "<b>Obesidade Grau III ou obesidade mórbida.</b>";
+        var problema = "<b>Risco Muito Grave. O risco de doenças associadas assim como a mortalidade aumenta 90%.</b>";
       }
 
-      document.getElementById("mostrar").innerHTML = 
-      "<br>------------------------------------------------------------------------------------------------" + 
-      "<br>                                  <b>RESULTADO - IMC</b>" + 
-      "<br><br><b>PACIENTE:     </b>" + nome.toUpperCase() + 
-      "<br><b>PESO:         </b>" + peso + " Kg" + 
-      "<br><b>ALTURA:       </b>" + altura + " Metros" + 
-      "<br><b>IMC:          </b>" + imc + 
-      "<br><br>Olá " + nome.toUpperCase() + ", você está no nível de obesidade: " + <b>obesidade</b> + 
-      " Com este nível de IMC você está propenso a apresentar os seguintes problemas de saúde: " + <b>problema</b> + 
-      "<br>------------------------------------------------------------------------------------------------";
+      document.getElementById("mostrar").innerHTML =
+        "<br>------------------------------------------------------------------------------------------------------------------------" +
+        "<br><b>RESULTADO - IMC</b>" +
+        "<br><br><b>PACIENTE: </b>" + nome.toUpperCase() +
+        "<br><b>PESO: </b>" + peso + " Kg" +
+        "<br><b>ALTURA: </b>" + altura + " Metros" +
+        "<br><b>IMC: </b>" + imc +
+        "<br><br>Olá " + nome.toUpperCase() + ", você está no nível de obesidade: <br>" + obesidade +
+        "<br> Com este nível de IMC você está propenso a apresentar os seguintes problemas de saúde: <br>" + problema +
+        "<br>------------------------------------------------------------------------------------------------------------------------";
 
     }
   </script>
